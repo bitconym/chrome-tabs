@@ -17,4 +17,4 @@ And from the project's root install the dependencies with:
 To build the code just run `gulp` from the command line. Those will produce functional version in the `dist` folder.
 
 ## License
-This source code is under [MIT license](http://opensource.org/licenses/MIT).
+This source code is under [MIT license](https://github.com/imjustd/chrome-tabs/blob/master/LICENSE).
