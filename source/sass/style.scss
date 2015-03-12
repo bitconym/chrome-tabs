@@ -1,0 +1,149 @@
+@import "compass";
+
+// The main tab container
+.tab-container {
+  background: #8dc8fb; // Make the background blue
+  margin: 0;
+  padding: 0;
+  max-height: 40px;
+
+  ul {
+    &.nav-tabs {
+      margin: 0;
+      list-style-type: none;
+      line-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      display: inline-block;
+      @include display-flex; // This is the magic that will dynamically expand/shrink the width tabs
+      padding-right: 20px;
+      border-bottom: 5px solid #f7f7f7;
+
+      $color: #c3d5e6; // Color for the disabled files
+
+      // Inactive tab styles
+      > li {
+        $raduis: 28px 145px; // Radius to make the tabs look like trapezoid
+
+        // Apply the radius
+        @include border-top-left-radius($raduis); 
+        @include border-top-right-radius($raduis);
+
+        margin: 5px -14px 0;
+        padding: 0 30px 0 25px;
+        height: 170px;
+        background: $color;
+        position: relative;
+        width: 200px;
+        max-width: 200px;
+        min-width: 20px;
+        border:1px solid #aaa;
+
+        @include box-shadow(0 4px 6px rgba(0,0,0,.5));
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        > a {
+          display: block;
+          max-width:100%;
+          text-decoration: none;
+          color: #222;
+          padding: 3px 7px;
+
+          span {
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+          }
+
+          &:focus,
+          &:hover {
+            background-color: transparent;
+            border-color: transparent;
+          }
+
+          // The remove button styles
+          .glyphicon-remove {
+            color: #777;
+            display: inline-block;
+            padding:3px;
+            font-size: 10px;
+            position:absolute;
+            z-index: 10;
+            top:7px;
+            right: -10px;
+            @include border-radius(50%);
+
+            &:hover {
+              background: #d39ea3;
+              color: white;
+              @include box-shadow(inset 0 1px 1px rgba(0,0,0,.25));
+              @include text-shadow(0 1px 1px rgba(0,0,0,.25));
+            }
+          }
+        }
+
+        // Active tab style
+        &.active {
+          z-index: 2;
+          @include background-image(linear-gradient(white, #f7f7f7 30px));
+
+          > a {
+            background-color: transparent;
+            border-color: transparent;
+            border-bottom-color: transparent;
+
+            &:focus,
+            &:hover {
+              background-color: transparent;
+              border-color: transparent;
+              border-bottom-color: transparent;
+            }
+          }
+        }
+      }
+
+      // The open new tab button
+      .btn {
+        float: left;
+        height: 20px;
+        width: 35px;
+        min-width: 35px;
+        max-width: 35px;
+        margin: 10px 0 0 0;
+        border-color: #71a0c9;
+        outline: none;
+
+        @include transform(skew(30deg));
+
+        &.btn-default {
+          background: $color;
+
+          &:hover {
+            background: #d2deeb;
+          }
+
+          &:active {
+            background: #9cb5cc;
+          }
+        }
+      }
+    }
+  }
+
+  // Styling the tab containter
+  .tab-pane {
+    padding: 60px 40px;
+    text-align: center;
+
+    &.active {
+      border-top:1px solid #ddd;
+    }
+  }
+}

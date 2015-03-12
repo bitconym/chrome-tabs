@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- tell angular this is chromeTabsApp -->
+<html lang="en" ng-app="chromeTabsApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chrome tabs with Bootstrap and AngularJS</title>
+    <!-- include the Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- include our compiled CSS -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <!-- this will be the only controller AppCtrl -->
+  <body ng-controller="AppCtrl">
+    <!-- set our tabs with the AngularJS Bootstrap directive -->
+    <tabset class="tab-container">
+      <tab ng-repeat="tab in tabs" select="tabChange()" active="tab.active">
+        <tab-heading>
+          <span>{{tab.title}}</span> <i class="glyphicon glyphicon-remove" ng-click="removeTab($event, $index)"></i> <!-- the tab close button -->
+        </tab-heading>
+        <h1>{{tab.content}}</h1>
+      </tab>
+      <!-- this is the open new tab button -->
+      <button class="btn btn-default" ng-click="addTab()"></button>
+    </tabset>
+    <!-- include the JavaScript dependencies: jQuery, AngularJS, AngularUI Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+    <!-- include our JavaScript -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
