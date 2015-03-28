@@ -14,7 +14,7 @@
   <body ng-controller="AppCtrl">
     <!-- set our tabs with the AngularJS Bootstrap directive -->
     <tabset class="tab-container">
-      <tab ng-repeat="tab in tabs" select="tabChange()" active="tab.active">
+      <tab ng-repeat="tab in tabs" active="tab.active" tab-highlight>
         <tab-heading>
           <span>{{tab.title}}</span> <i class="glyphicon glyphicon-remove" ng-click="removeTab($event, $index)"></i> <!-- the tab close button -->
         </tab-heading>
