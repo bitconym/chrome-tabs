@@ -31,10 +31,10 @@ app
       addTab();
     }
   }])
-  .directive('tabHighlight', [function(){
+  .directive('tabHighlight', [function () {
     return {
       restrict: 'A',
-      link: function(scope, element) {
+      link: function (scope, element) {
         // Here is the major jQuery usage where we add the event
         // listeners mousemove and mouseout on the tabs to initalize
         // the moving highlight for the inactive tabs
